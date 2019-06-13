@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-action teal lighten-1 white-text">
+          <h5 class="center">Facturas pendientes</h5>
+        </div>
+        <div class="card-content">						
+          <form #pendingInvoiceForm='ngForm' (ngSubmit)="addPendingInvoice
+          (pendingInvoiceForm)">
+          <input type="hidden" name="_id" #_id="ngModel" 
+          [(ngModel)]="pendingInvoiceService.selectedPending_Invoice._id">
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="title" type="text" #name="ngModel" 
+                [(ngModel)]="pendingInvoiceService.selectedPending_Invoice.title" 
+                placeholder="Ingrese titulo" autocomplete="off" >
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="description" type="text" #name="ngModel" 
+                [(ngModel)]="pendingInvoiceService.selectedPending_Invoice.description" 
+                placeholder="Ingrese descripción" autocomplete="off" >
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="date" type="date" #name="ngModel" id="date"
+                [(ngModel)]="pendingInvoiceService.selectedPending_Invoice.date" 
+                placeholder="Enter the date" autocomplete="off" >
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col-s12">
+                <button class="btn">Guardar</button>
+                <button class="btn right light-green darken-1" style="margin-left: 2px; background-color: #7cb342;"
+                  (click)="resetForm(pendingInvoiceForm)">Limpiar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+      <table class="highlight" style="margin: 30px 0px 0px 30px">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Fecha</th>
+            <th>Operaciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let pending_invoices of pendingInvoiceService.pending_invoices">
+          <td>{{ pending_invoices.title }}</td>
+          <td>{{ pending_invoices.description }}</td>
+          <td>{{ pending_invoices.date }}</td>
+          <td>
+              <a (click)="editPendingInvoice(pending_invoices)">
+                  <i style="cursor: pointer; padding: 5px;" class="material-icons">edit</i>
+                </a>
+                <a (click)="deletePendingInvoice(pending_invoices._id, pendingInvoiceForm)">
+                  <i style="cursor: pointer; padding: 5px; color: #b71c1c" class="material-icons">delete</i>
+                </a>
+          </td>
+          </tr>
+        </tbody>
+        </table>
+        <br><br>
+        <a style= "margin-left: 25px; background-color: #00bd56;" class="btn tooltipped" data-position="bottom" 
+        data-tooltip="Button does't work yet ==> :(">Generar reporte</a>
+        <!--<input style="margin-left: 25px; background-color: #00bd56;" type="submit" value="Generar reporte" class="btn btn">-->
+        
+    </div>
+  </div>
+  </div>
+
+
+  

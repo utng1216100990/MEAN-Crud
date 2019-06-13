@@ -1,0 +1,75 @@
+
+  <div class="row">
+    <div class="col s4">
+      <div class="card">
+        <div class="card-content">
+          <form #userForm='ngForm' (ngSubmit)="addUser
+          (userForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
+            <div class="row">
+              <div class="input-field col-s12">
+                <input type="text" name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name"
+                  placeholder="Enter your name" autocomplete="off">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="surname" #name="ngModel"
+                  [(ngModel)]="userService.selectedUser.surname" placeholder="Enter your Surname" autocomplete="off">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="address" #name="ngModel" [(ngModel)]="userService.selectedUser.address"
+                  placeholder="Enter your Address" autocomplete="off">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="phone" #name="ngModel" [(ngModel)]="userService.selectedUser.phone"
+                   placeholder="Enter your Phone" autocomplete="off">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="email" #name="ngModel" [(ngModel)]="userService.selectedUser.email"
+                   placeholder="Enter your Email" autocomplete="off">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="occupation" #name="ngModel" [(ngModel)]="userService.selectedUser.occupation"
+                   placeholder="Enter your Occupation" autocomplete="off">
+              </div>
+              <div class="card-action">
+                <div class="input-field col-s12">
+                  <button class="btn">Save</button>
+                  <button class="btn right light-green darken-1" style="margin-left: 2px; background-color: #7cb342;"
+                    (click)="resetForm(userForm)">Clean</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+      <table class="striped highlight black-text" style="margin: 30px 0px 0px 70px;">
+        <thead>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Occupation</th>
+          <th>Operations</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userService.users">
+            <td>{{ user.name }}</td>
+            <td>{{ user.surname }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.phone  }}</td>
+            <td>{{ user.occupation }}</td>
+            <td>
+              <a (click)="editUser(user)">
+                <i style="cursor: pointer; padding: 5px;" class="material-icons">edit</i>
+              </a>
+              <a (click)="deleteUser(user._id, userForm)">
+                <i style="cursor: pointer; padding: 5px; color: #b71c1c" class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-action teal lighten-1 white-text">
+          <h5 class="center">Control gastos externos</h5>
+        </div>
+        <div class="card-content">						
+          <form #externalExpensesForm='ngForm' (ngSubmit)="addExternalExpense
+          (externalExpensesForm)">
+          <input type="hidden" name="_id" #_id="ngModel" 
+          [(ngModel)]="externalExpensesService.selectedExternalExpense._id">
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="reason" type="text" #name="ngModel" 
+                [(ngModel)]="externalExpensesService.selectedExternalExpense.reason" 
+                placeholder="Motivo de gasto" autocomplete="off" >
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="cost" type="text" #name="ngModel" 
+                [(ngModel)]="externalExpensesService.selectedExternalExpense.cost" 
+                placeholder="Costo" value="0" autocomplete="off" >
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col-s12">
+                <button class="btn">Guardar</button>
+                <button class="btn right light-green darken-1" style="margin-left: 2px; background-color: #7cb342;"
+                  (click)="resetForm(externalExpensesForm)">Limpiar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+      <table class="highlight" style="margin: 30px 0px 0px 30px">
+        <thead>
+          <tr>
+            <th>Motivo de gasto</th>
+            <th>Costo</th>
+            <th>Operaciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let external_expenses of externalExpensesService.external_expenses">
+          <td>{{ external_expenses.reason }}</td>
+          <td>{{ external_expenses.cost }}</td>
+          <td>
+              <a (click)="editExternalExpense(external_expenses)">
+                  <i style="cursor: pointer; padding: 5px;" class="material-icons">edit</i>
+                </a>
+                <a (click)=" deleteExternalExpense(external_expenses._id, externalExpensesForm)">
+                  <i style="cursor: pointer; padding: 5px; color: #b71c1c" class="material-icons">delete</i>
+                </a>
+          </td>
+          </tr>
+        </tbody>
+        </table>
+        <br><br>
+        <input style="margin-left: 25px; background-color: #00bd56;" type="submit" value="Generar reporte" class="btn btn">
+    </div>
+  </div>
+  </div>
