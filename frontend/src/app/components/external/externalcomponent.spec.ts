@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExternalExpensesComponent } from './external-expenses.component';
+import { ExternalComponent } from './external.component';
 
-describe('ExternalExpensesComponent', () => {
-  let component: ExternalExpensesComponent;
-  let fixture: ComponentFixture<ExternalExpensesComponent>;
+describe('ExternalComponent', () => {
+  let component: ExternalComponent;
+  let fixture: ComponentFixture<ExternalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExternalExpensesComponent ]
+      declarations: [ ExternalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExternalExpensesComponent);
+    fixture = TestBed.createComponent(ExternalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

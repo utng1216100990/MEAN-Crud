@@ -6,21 +6,21 @@
           <h5 class="center">Control gastos externos</h5>
         </div>
         <div class="card-content">						
-          <form #externalExpensesForm='ngForm' (ngSubmit)="addExternalExpense
-          (externalExpensesForm)">
+          <form #externalForm='ngForm' (ngSubmit)="addExternal
+          (externalForm)">
           <input type="hidden" name="_id" #_id="ngModel" 
-          [(ngModel)]="externalExpensesService.selectedExternalExpense._id">
+          [(ngModel)]="externalService.selectedExternal._id">
             <div class="row">
               <div class="input-field col s12">
                 <input name="reason" type="text" #name="ngModel" 
-                [(ngModel)]="externalExpensesService.selectedExternalExpense.reason" 
+                [(ngModel)]="externalService.selectedExternal.reason" 
                 placeholder="Motivo de gasto" autocomplete="off" >
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
                 <input name="cost" type="text" #name="ngModel" 
-                [(ngModel)]="externalExpensesService.selectedExternalExpense.cost" 
+                [(ngModel)]="externalService.selectedExternal.cost" 
                 placeholder="Costo" value="0" autocomplete="off" >
               </div>
             </div>
@@ -28,7 +28,7 @@
               <div class="input-field col-s12">
                 <button class="btn">Guardar</button>
                 <button class="btn right light-green darken-1" style="margin-left: 2px; background-color: #7cb342;"
-                  (click)="resetForm(externalExpensesForm)">Limpiar</button>
+                  (click)="resetForm(externalForm)">Limpiar</button>
               </div>
             </div>
           </form>
@@ -46,14 +46,14 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let external_expenses of externalExpensesService.external_expenses">
-          <td>{{ external_expenses.reason }}</td>
-          <td>{{ external_expenses.cost }}</td>
+          <tr *ngFor="let external of externalService.externals">
+          <td>{{ external.reason }}</td>
+          <td>{{ external.cost }}</td>
           <td>
-              <a (click)="editExternalExpense(external_expenses)">
+              <a (click)="editExternal(external)">
                   <i style="cursor: pointer; padding: 5px;" class="material-icons">edit</i>
                 </a>
-                <a (click)=" deleteExternalExpense(external_expenses._id, externalExpensesForm)">
+                <a (click)=" deleteExternal(external._id, externalForm)">
                   <i style="cursor: pointer; padding: 5px; color: #b71c1c" class="material-icons">delete</i>
                 </a>
           </td>

@@ -1,4 +1,4 @@
-export class ExternalExpense {
+export class External {
 
     constructor(_id = '', reason = '', cost = 0) {
         this._id = _id;

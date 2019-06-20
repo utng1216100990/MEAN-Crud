@@ -8,7 +8,7 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersComponent } from './components/users/users.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ExternalExpensesComponent } from './components/external-expenses/external-expenses.component';
+import { ExternalComponent } from './components/external/external.component';
 import { HomeComponent } from './components/home/home.component';
 import { PendingInvoiceComponent } from './components/pending-invoice/pending-invoice.component';
 
@@ -18,7 +18,7 @@ import { PendingInvoiceComponent } from './components/pending-invoice/pending-in
     AppComponent,
     EmployeesComponent,
     UsersComponent,
-    ExternalExpensesComponent,
+    ExternalComponent,
     HomeComponent,
     PendingInvoiceComponent
   ],
@@ -30,7 +30,7 @@ import { PendingInvoiceComponent } from './components/pending-invoice/pending-in
       { path: '', component: HomeComponent },
       { path: 'employees', component: EmployeesComponent },
       { path: 'users', component: UsersComponent },
-      { path: 'external_expenses', component: ExternalExpensesComponent },
+      { path: 'externals', component: ExternalComponent },
       { path: 'pending_invoices', component: PendingInvoiceComponent }
     ])
   ],
