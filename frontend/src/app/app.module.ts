@@ -10,7 +10,7 @@ import { UsersComponent } from './components/users/users.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ExternalComponent } from './components/external/external.component';
 import { HomeComponent } from './components/home/home.component';
-import { PendingInvoiceComponent } from './components/pending-invoice/pending-invoice.component';
+import { InvoiceComponent } from './components/invoice/invoice.component';
 
 
 @NgModule({
@@ -20,7 +20,7 @@ import { PendingInvoiceComponent } from './components/pending-invoice/pending-in
     UsersComponent,
     ExternalComponent,
     HomeComponent,
-    PendingInvoiceComponent
+    InvoiceComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +31,7 @@ import { PendingInvoiceComponent } from './components/pending-invoice/pending-in
       { path: 'employees', component: EmployeesComponent },
       { path: 'users', component: UsersComponent },
       { path: 'externals', component: ExternalComponent },
-      { path: 'pending_invoices', component: PendingInvoiceComponent }
+      { path: 'invoices', component: InvoiceComponent }
     ])
   ],
   providers: [],

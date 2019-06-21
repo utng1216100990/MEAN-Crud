@@ -6,28 +6,28 @@
           <h5 class="center">Facturas pendientes</h5>
         </div>
         <div class="card-content">						
-          <form #pendingInvoiceForm='ngForm' (ngSubmit)="addPendingInvoice
-          (pendingInvoiceForm)">
+          <form #invoiceForm='ngForm' (ngSubmit)="addInvoice
+          (invoiceForm)">
           <input type="hidden" name="_id" #_id="ngModel" 
-          [(ngModel)]="pendingInvoiceService.selectedPending_Invoice._id">
+          [(ngModel)]="invoiceService.selectedInvoice._id">
             <div class="row">
               <div class="input-field col s12">
                 <input name="title" type="text" #name="ngModel" 
-                [(ngModel)]="pendingInvoiceService.selectedPending_Invoice.title" 
+                [(ngModel)]="invoiceService.selectedInvoice.title" 
                 placeholder="Ingrese titulo" autocomplete="off" >
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
                 <input name="description" type="text" #name="ngModel" 
-                [(ngModel)]="pendingInvoiceService.selectedPending_Invoice.description" 
+                [(ngModel)]="invoiceService.selectedInvoice.description" 
                 placeholder="Ingrese descripción" autocomplete="off" >
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
                 <input name="date" type="date" #name="ngModel" id="date"
-                [(ngModel)]="pendingInvoiceService.selectedPending_Invoice.date" 
+                [(ngModel)]="invoiceService.selectedInvoice.date" 
                 placeholder="Enter the date" autocomplete="off" >
               </div>
             </div>
@@ -35,7 +35,7 @@
               <div class="input-field col-s12">
                 <button class="btn">Guardar</button>
                 <button class="btn right light-green darken-1" style="margin-left: 2px; background-color: #7cb342;"
-                  (click)="resetForm(pendingInvoiceForm)">Limpiar</button>
+                  (click)="resetForm(invoiceForm)">Limpiar</button>
               </div>
             </div>
           </form>
@@ -54,15 +54,15 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let pending_invoices of pendingInvoiceService.pending_invoices">
-          <td>{{ pending_invoices.title }}</td>
-          <td>{{ pending_invoices.description }}</td>
-          <td>{{ pending_invoices.date }}</td>
+          <tr *ngFor="let invoice of invoiceService.invoices">
+          <td>{{ invoice.title }}</td>
+          <td>{{ invoice.description }}</td>
+          <td>{{ invoice.date }}</td>
           <td>
-              <a (click)="editPendingInvoice(pending_invoices)">
+              <a (click)="editInvoice(invoice)">
                   <i style="cursor: pointer; padding: 5px;" class="material-icons">edit</i>
                 </a>
-                <a (click)="deletePendingInvoice(pending_invoices._id, pendingInvoiceForm)">
+                <a (click)="deleteInvoice(invoice._id, invoiceForm)">
                   <i style="cursor: pointer; padding: 5px; color: #b71c1c" class="material-icons">delete</i>
                 </a>
           </td>

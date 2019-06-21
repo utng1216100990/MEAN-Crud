@@ -1,4 +1,4 @@
-export class PendingInvoice {
+export class Invoice {
 
     constructor(_id = '', title = '', description = '', date = '') {
         this._id = _id;

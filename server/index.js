@@ -20,7 +20,7 @@ app.use(cors({origin: 'http://localhost:4200'}));
 app.use('/api/employees' ,require('./routes/employee.routes'));
 app.use('/api/users' ,require('./routes/user.routes'));
 app.use('/api/externals' ,require('./routes/external.routes'));
-app.use('/api/pending_invoices' ,require('./routes/pending_invoice'));
+app.use('/api/invoices' ,require('./routes/invoice.routes'));
 
 
 
