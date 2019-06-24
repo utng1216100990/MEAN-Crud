@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-action teal lighten-1 white-text">
+          <h5 class="center">Biblioteca</h5>
+        </div>
+        <div class="card-content">						
+          <form #bookForm='ngForm' (ngSubmit)="addBook
+          (bookForm)">
+          <input type="hidden" name="_id" #_id="ngModel" 
+          [(ngModel)]="bookService.selectedBook._id">
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="name" type="text" #name="ngModel" 
+                [(ngModel)]="bookService.selectedBook.name" 
+                placeholder="Ingrese nombre" autocomplete="off" >
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="autor" type="text" #name="ngModel" 
+                [(ngModel)]="bookService.selectedBook.autor" 
+                placeholder="Ingrese autor" autocomplete="off" >
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="editorial" type="text" #name="ngModel" 
+                [(ngModel)]="bookService.selectedBook.editorial" 
+                placeholder="Ingrese editorial" autocomplete="off" >
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="date" type="date" #name="ngModel" id="date"
+                [(ngModel)]="bookService.selectedBook.date" 
+                placeholder="Ingrese fecha de publicación" autocomplete="off" >
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col-s12">
+                <button class="btn">Guardar</button>
+                <button class="btn right light-green darken-1" style="margin-left: 2px; background-color: #7cb342;"
+                  (click)="resetForm(bookForm)">Limpiar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+      <table class="highlight" style="margin: 30px 0px 0px 30px">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Autor</th>
+            <th>Editorial</th>
+            <th>Fecha</th>
+            <th>Operaciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let book of bookService.books">
+          <td>{{ book.name }}</td>
+          <td>{{ book.autor }}</td>
+          <td>{{ book.editorial }}</td>
+          <td>{{ book.date }}</td>
+          <td>
+              <a (click)="editBook(book)">
+                  <i style="cursor: pointer; padding: 5px;" class="material-icons">edit</i>
+                </a>
+                <a (click)="deleteBook(book._id, bookForm)">
+                  <i style="cursor: pointer; padding: 5px; color: #b71c1c" class="material-icons">delete</i>
+                </a>
+          </td>
+          </tr>
+        </tbody>
+        </table>
+        <br><br>
+        <a style= "margin-left: 25px; background-color: #00bd56;" class="btn tooltipped" data-position="bottom" 
+        data-tooltip="Button does't work yet ==> :(">Generar reporte</a>
+        <!--<input style="margin-left: 25px; background-color: #00bd56;" type="submit" value="Generar reporte" class="btn btn">-->
+        
+    </div>
+  </div>
+  </div>

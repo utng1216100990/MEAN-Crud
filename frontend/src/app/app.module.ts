@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { FormsModule } from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,7 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ExternalComponent } from './components/external/external.component';
 import { HomeComponent } from './components/home/home.component';
 import { InvoiceComponent } from './components/invoice/invoice.component';
-
+import { BookComponent } from './components/book/book.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +18,8 @@ import { InvoiceComponent } from './components/invoice/invoice.component';
     UsersComponent,
     ExternalComponent,
     HomeComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +30,8 @@ import { InvoiceComponent } from './components/invoice/invoice.component';
       { path: 'employees', component: EmployeesComponent },
       { path: 'users', component: UsersComponent },
       { path: 'externals', component: ExternalComponent },
-      { path: 'invoices', component: InvoiceComponent }
+      { path: 'invoices', component: InvoiceComponent },
+      { path: 'books', component: BookComponent }
     ])
   ],
   providers: [],
