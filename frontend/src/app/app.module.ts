@@ -10,6 +10,7 @@ import { ExternalComponent } from './components/external/external.component';
 import { HomeComponent } from './components/home/home.component';
 import { InvoiceComponent } from './components/invoice/invoice.component';
 import { BookComponent } from './components/book/book.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BookComponent } from './components/book/book.component';
     ExternalComponent,
     HomeComponent,
     InvoiceComponent,
-    BookComponent
+    BookComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

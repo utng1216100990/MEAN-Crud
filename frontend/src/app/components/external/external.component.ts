@@ -13,6 +13,7 @@ declare var M: any;
 export class ExternalComponent implements OnInit {
 
   constructor(private externalService: ExternalService) { }
+  filterExternals = '';
 
   ngOnInit() {
     this.getExternals();
@@ -57,6 +58,10 @@ export class ExternalComponent implements OnInit {
           M.toast({html: 'Deleted Succesfully'});
         });
     }
+  }
+
+  getTotal() {
+    return this.externalService.externals.map(i => i.cost).reduce((acc, value) => acc + value, 0);
   }
 
   resetForm(form?: NgForm) {

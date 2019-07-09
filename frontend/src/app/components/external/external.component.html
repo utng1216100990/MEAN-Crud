@@ -35,7 +35,13 @@
         </div>
       </div>
     </div>
+
     <div class="col s7">
+      <div class="input-field">
+        <i class="material-icons prefix">search</i>
+        <input type="text" placeholder="Buscar..." name="filterExternal" [(ngModel)]="filterExternals">
+      </div>
+
       <table class="highlight" style="margin: 30px 0px 0px 30px">
         <thead>
           <tr>
@@ -46,9 +52,9 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let external of externalService.externals">
+          <tr *ngFor="let external of externalService.externals | filter:filterExternals">
           <td>{{ external.reason }}</td>
-          <td>{{ external.cost }}</td>
+          <td>{{ external.cost | currency }}</td>
           <td>
               <a (click)="editExternal(external)">
                   <i style="cursor: pointer; padding: 5px;" class="material-icons">edit</i>
@@ -59,6 +65,14 @@
           </td>
           </tr>
         </tbody>
+        <tfoot>
+            <tr>
+              <th></th>
+              <th><b>Total:</b></th>
+              <th>{{ getTotal() | currency }}</th>
+              <th></th>
+            </tr>
+          </tfoot>
         </table>
         <br><br>
         <input style="margin-left: 25px; background-color: #00bd56;" type="submit" value="Generar reporte" class="btn btn">
