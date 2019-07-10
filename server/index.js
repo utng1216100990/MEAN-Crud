@@ -9,7 +9,6 @@ const { mongoose } = require('./database');
 // Toma un puerto disponible o el 3000.
 app.set('port', process.env.PORT || 3000); 
 
-
 /* Middlewares */
 app.use(morgan('dev'));
 app.use(express.json());
