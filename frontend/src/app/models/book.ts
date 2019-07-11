@@ -1,5 +1,5 @@
 export class Book {
-
+//Constructor
     constructor(_id = '', name = '', autor = '', editorial = '', date = '') {
         this._id = _id;
         this.name = name;

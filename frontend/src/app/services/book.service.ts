@@ -6,7 +6,7 @@ import { Book } from '../models/book';
   providedIn: 'root'
 })
 export class BookService {
-
+//Array Book
   selectedBook: Book;
   books: Book[];
   readonly URL_API = 'http://localhost:3000/api/books';

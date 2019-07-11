@@ -7,5 +7,5 @@ const BookSchema = new Schema({
     editorial: { type: String, required: true },
     date: { type: String, required: true }
 });
-
+// Export
 module.exports = mongoose.model('Book', BookSchema);

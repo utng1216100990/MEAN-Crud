@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../services/book.service';
 import { NgForm } from '@angular/forms';
 import { Book } from '../../models/book';
+//Variable M
 declare var M: any;
 
 @Component({
